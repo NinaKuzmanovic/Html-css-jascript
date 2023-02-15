@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+<STYle>
+    body{
+        width: 1200px;  margin-right: auto; margin-left: auto; background-image: url('pozadina.jpg');  background-size: cover;
+     }
+header{text-align: center; font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
+nav{display: flex; flex-flow: row wrap;align-content: space-between; margin-top: 20px;}
+a{
+ margin-left: auto; margin-right: auto; text-decoration: none; font-size: 40px; 
+ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+ transition-property: all; 
+}
+a:hover{transform:scale(1.5,1.5); transition: 1s; }
+img{width: 100px; height: 100px;animation: mymove 2s infinite linear alternate;
+animation:uvecaj 3s 1 linear, mymove 3s infinite linear alternate;  backface-visibility: visible; }
+footer{border: 1px solid black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
+#slide{animation: slova 15s  infinite normal; position: absolute; left:50%; font-style: italic; transform: scale(2,2); top:580px;}
+section{border: 1px solid black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; padding-left: 10px;}
+span{font-weight: bold;}
+@-webkit-keyframes mymove {
+  
+to {-webkit-transform: rotateY(360deg); } }
+@keyframes mymove { 
+    to {transform: rotateY(360deg); } }
+
+ @keyframes uvecaj{  0% {
+    transform: translate(-800px,0);
+  }
+  100% {
+    transform: translate(0,0);
+  }
+}
+@keyframes slova{
+0%{font-size: 0px;}
+30%{font-size: initial; }
+60%{font-size: initial;}
+100%{font-size: 0px;}
+
+}
+</STYle>
+
+
+</head>
+<body>
+    <script>
+        var i = 0; 			
+        var Umotvorine = [];	
+        var time = 15000;	
+             
+     
+        Umotvorine[0] = "Bez muke nema nauke.";
+        Umotvorine[1] = "Lepa reč gvozdena vrata otvara.";
+        Umotvorine[2] = "Ispeci pa reci.";
+        Umotvorine[3] = "Što možeš danas, ne ostavlјaj za sutra.";
+    
+        function Promeni(){
+            document.getElementById("slide").innerHTML ="<p>"+Umotvorine[i]+"<p>";
+        
+        
+            if(i < Umotvorine.length - 1){
+              
+              i++; 
+            } else { 
+               
+                i = 0;
+            }
+        
+          
+            setTimeout(Promeni, time);
+        }
+        window.onload=Promeni;
+    
+    </script>
+
+
+
+    <header> <h1>Standardni korisnički interfejsi-Projektni zadatak</h1>
+
+        <img src="HTML5.png" alt=""><img src="css3.png" alt=""><img src="JS.png" alt="">
+    </header> <hr>
+    <nav><a href="galerija.html">Galerija</a><a href="tabela.html">Sortiranje</a><a href="slagalica.html">Slagalica</a></nav>
+    <br><br><br>
+   
+<section><p class="podaci"><span>Student:</span>Kuzmanović Nina </p>
+     <p class="podaci"> <span> Smer:</span>Računarska tehnika </p>
+    <p class="podaci"> <span> Broj indeksa:</span>RT-121/21  </p>
+         
+         
+         
+     <p><span>Zadaci iz kombinacije 5.Sadržaj linkova:</span></p>    
+         <ol>
+             <li>Link ka galeriji slika (kreirati galeriju sa Vašim efektom odabiranja i pregleda slika).</li>
+             <li>Link ka stranici koja sadrži tabelu koja ima 5 atributa (kolona) i gde  se može vršiti sortiranje redova po bilo kom atributu</li>
+             <li>Link ka igri "Složi puzzle 3x3 za 10 sekundi"  9 delova slike se nalazi oko polja za slaganje veličine 3x3. </li>
+         </ol>
+</section>
+
+ <div id="slide"> </div> 
+    
+    
+    <br><br><br><br><br><br><br>
+   <footer> <p>&copy 2021 Nina Kuzmanović RT-121/21
+</p> </footer>
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Tabela</title>
+	<style>
+		table {
+	
+			width: 80%;
+			border: 1px solid #dddd;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		th,
+		td {
+			text-align: left;
+			padding: 15px;
+		}
+		
+		tr:nth-child(even) {
+			background-color: blue
+		}
+
+		body{ background:url('pozadina.jpg'); background-size: cover;   margin-right: auto; margin-left: auto;}   
+ h1{ font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-align: center; }
+ footer{border: 1px solid black;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif}
+th{cursor: pointer;}
+
+	</style>
+</head>
+
+<body>
+	
+	<a href="index.html"><img src="home.png" alt="" style="width: 50px; height: 50px; display: inline;"></a>  <h1>Tabela</h1> 
+    <hr>
+
+		<table id="table">
+			<tr>
+				<th onclick="Sortiraj(0)">Ime</th>
+				<th onclick="Sortiraj(1)">Prezime</th>
+				<th onclick="Sortiraj(2)">Država</th>
+				<th onclick="Sortiraj(3)">Grad</th>
+				<th onclick="Sortiraj(4)">Datum rodjenja</th>
+			</tr>
+			<tr>
+				<td>Nina</td>
+				<td>Kuzmanović</td>
+				<td>Srbija</td>
+				<td>Mladenovac</td>
+				<td class="datum">01.01.1990</td>
+			</tr>
+			<tr>
+				<td>Aleksandar</td>
+				<td>Bakalović</td>
+				<td>Slovenija</td>
+				<td>Ljubljana</td>
+				<td class="datum">01.01.1991</td>
+			</tr>
+			<tr>
+				<td>Alisa</td>
+				<td>Jekić</td>
+				<td>Nemačka</td>
+				<td>Berlin</td>
+				<td class="datum">02.02.1988</td>
+			</tr>
+			<tr>
+				<td>Filip</td>
+				<td>Kostić</td>
+				<td>Srbija</td>
+				<td>Beograd</td>
+				<td class="datum">14.06.2001</td>
+			</tr>
+			<tr>
+                  <td>Mina</td>
+				  <td>Urošević</td>
+				  <td>Makedonija</td>
+				  <td>Skoplje</td>
+				  <td class="datum">05.05.2002</td>
+			</tr>
+		</table>
+		<br><br>
+		<footer> <p>&copy 2021 Nina Kuzmanović RT-121/21
+		</p> </footer>
+		<script>
+			function Sortiraj(n) {
+				var tabela;
+				tabela = document.getElementById("table");
+				var  i, x, y, count = 0;
+				var zamena= true;
+
+				
+				var sortiraj = "rastuće";
+
+				
+				while (zamena) {
+					zamena = false;
+					var redovi= tabela.rows;
+
+					
+					for (i = 1; i < (redovi.length - 1); i++) {
+						var zameni = false;
+
+						
+						x = redovi[i].getElementsByTagName("TD")[n];
+						y = redovi[i + 1].getElementsByTagName("TD")[n];
+
+						
+						if (sortiraj == "rastuće") {
+
+							
+							if (x.innerHTML.split('.').reverse().join('') > y.innerHTML.split('.').reverse().join(''))
+								{
+								
+								zameni = true;
+								break;
+							}
+						} else if (sortiraj== "opadajuće") {
+
+						
+							if (x.innerHTML.split('.').reverse().join('') < y.innerHTML.split('.').reverse().join(''))
+								{
+								
+								zameni = true;
+								break;
+							}
+						}
+					}
+					if (zameni) {
+						
+						redovi[i].parentNode.insertBefore(redovi[i + 1], redovi[i]);
+						zamena = true;
+
+						
+						count++;
+					} else {
+						
+						if (count == 0 && sortiraj == "rastuće") {
+							sortiraj = "opadajuće";
+							zamena = true;
+						}
+					}
+				}
+			}
+
+			
+
+			
+		</script>
+
+</body>
+
+</html>
